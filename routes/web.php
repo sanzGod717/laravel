@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Api;
 use App\Http\Controllers\Crud;
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Api::class,'index']);
@@ -17,3 +18,4 @@ Route::get('/edit', [Crud::class,'edit']);
 Route::post('/update', [Crud::class,'update'])->name('update');
 Route::get('/delete', [Crud::class,'destroy']);
 
+Route::get('/api', [ApiController::class,'index']);

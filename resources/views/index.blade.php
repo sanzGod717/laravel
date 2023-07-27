@@ -12,6 +12,9 @@
     
   <li>
     <a href="http://127.0.0.1:8000/crud"> Crud </a></li>
+    
+     <li>
+    <a href="http://127.0.0.1:8000/api"> Api </a></li>
       
       
     </ul>
