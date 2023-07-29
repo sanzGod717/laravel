@@ -77,21 +77,30 @@ class Crud extends Controller
      */
     public function update(Request $request)
     {
-      $nome = $request->input('nome_antigo');
+      $email = $request->input('nome_antigo');
       $senha= $request->input('senha_antiga');
-      $senhaBh = Logins::where("EMAIL",$nome)->first();
-      $senhaBa = $senhaBh->SENHA;
+      $senhaBh = Logins::where("EMAIL",'=',$email)->first();
+   
+   if(isset($senhaBh->SENHA)) {
+     $senhaBa = $senhaBh->SENHA;
+     
+      var_dump($senhaBa);
+   }
+   else {echo "Seu Email não Existe";}
       
-      if (Logins::where("EMAIL","=", $nome)->exists()) {
-    echo "email verificado e porem a senha esta incorreta";
-    $nomeU = $request->input('nome_novo');
-    Logins::where('EMAIL', '=', $nome)->update([
-         "EMAIL" => $nomeU
+      if (Logins::where("EMAIL","=", $email)->exists()) {
+   
+    echo "email verificado<br>";
+    
+    $emailU = $request->input('nome_novo');
+  
+    Logins::where('EMAIL', '=', $email)->update([
+         "EMAIL" => $emailU
         ]);
         
-        if ($senhaBh && password_verify($senha,$senhaBa)) {
-
-     $senhaU = $request->input('senha_novo');
+        if ($senhaBa && password_verify($senha,$senhaBa)) {
+      echo "senha Validada";
+      $senhaU = $request->input('senha_novo');
       $hash = password_hash($senhaU, PASSWORD_DEFAULT);
       $senhaaBd = Logins::where('SENHA', $senha)->update([
          "SENHA" => $hash
@@ -99,7 +108,7 @@ class Crud extends Controller
        return redirect('/crud');
 }
 } else {
-    echo "Dados incorretos";
+    echo "Senha incorreta";
 }
     }
 
