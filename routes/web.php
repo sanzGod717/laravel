@@ -1,12 +1,12 @@
 <?php
-use App\Http\Controllers\Api;
+use App\Http\Controllers\Waifu;
 use App\Http\Controllers\Crud;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [Api::class,'index']);
-Route::get('/waifu', [Api::class,'waifu']);
-Route::get('/count/{qnt}', [Api::class,'getNum']);
+Route::get('/', [Waifu::class,'index']);
+Route::get('/waifu', [Waifu::class,'waifu']);
+Route::get('/count/{qnt}', [Waifu::class,'getNum']);
 
 
 Route::get('/crud', [Crud::class,'index']);

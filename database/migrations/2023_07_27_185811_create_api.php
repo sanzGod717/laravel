@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('apis', function (Blueprint $table) {
             $table->id();
-            $table->text('firstName');
-            $table->text('lastName');
+            $table->string('name');
             $table->string('gender');
             $table->integer('age');
             $table->text('email');
             $table->text('password');
             $table->SoftDeletes();
             $table->timestamps();
+            
         });
     }
 

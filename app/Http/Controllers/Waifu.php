@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pessoas;
 
-class Api extends Controller
+class Waifu extends Controller
 {
     public function index (){
         

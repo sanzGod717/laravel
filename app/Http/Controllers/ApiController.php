@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\apis;
+use App\Models\Locations;
+
 
 class ApiController extends Controller
 {
@@ -22,21 +24,53 @@ class ApiController extends Controller
     
     $first = $name->first;
     $last = $name->last;
+    $nam = $first." ".$last;
     $gender = $resulta->gender;
     $email = $resulta->email;
     $password = $resulta->login->password;
     $age = $resulta->registered->age;
+   
+ $city = $resulta->location->city;
+ $state = $resulta->location->state;
+ $country = $resulta->location->country;
+ $postCode = $resulta->location->postcode;
+ 
+ $loca = $resulta->location->street;
+ 
+ $road = $loca->name." , ".$loca->number;
     }
+    
          $user = apis::Create([
-         "firstName" => $first,
-         "lastName" => $last,
+         "name" => $nam,
          "gender" => $gender,
          "age" => $age,
          "email" => $email,
-         "password" => $password
+         "password" => $password,
+         "local" => "teste"
         ]);
-      }
-  if($user->wasRecentlyCreated){
-     echo "Sucesso";}else {echo "erro";}
+        
+          //part of location 
+          $api_id = $user->id;
+      
+          $location =  Locations::Create([
+         "api_id" => $api_id,
+         "city" => $city,
+         "state" => $state,
+         "country" => $country,
+         "postcode" => $postCode,
+         "road" => $road
+          ]);
+       }
+  
+  
+   
+if($user->wasRecentlyCreated and 
+$location->wasRecentlyCreated)
+   {
+     echo "Sucesso";
+   }else {echo "erro";}
+      
+    
+          
      }
 }
