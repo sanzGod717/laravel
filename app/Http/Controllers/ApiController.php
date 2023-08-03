@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\apis;
+use App\Models\invok;
 use App\Models\Locations;
 
 
@@ -19,7 +20,7 @@ class ApiController extends Controller
 		 $resul = json_decode($response->getBody(),
 		false);
 		
-   foreach ($resul->results as $resulta){
+    foreach ($resul->results as $resulta){
     $name = $resulta->name;
     
     $first = $name->first;
@@ -35,12 +36,12 @@ class ApiController extends Controller
  $country = $resulta->location->country;
  $postCode = $resulta->location->postcode;
  
- $loca = $resulta->location->street;
+ $local = $resulta->location->street;
  
- $road = $loca->name." , ".$loca->number;
+ $road = $local->name." , ".$local->number;
     }
     
-         $user = apis::Create([
+         $apis = apis::Create([
          "name" => $nam,
          "gender" => $gender,
          "age" => $age,
@@ -50,27 +51,36 @@ class ApiController extends Controller
         ]);
         
           //part of location 
-          $api_id = $user->id;
-      
-          $location =  Locations::Create([
-         "api_id" => $api_id,
+        $location =  Locations::Create([
          "city" => $city,
          "state" => $state,
          "country" => $country,
          "postcode" => $postCode,
          "road" => $road
           ]);
+          $loca_id = $location->id;
+          $api_id = $apis->id;
+          
+          $inv = invok::create([
+            "id_api"=>$api_id,
+            "id_loca"=>$loca_id
+            ]);
+          $loca = $inv->Location->where("id", $loca_id)->first();
+          
+          $api = $inv->Api->where("id", $api_id)->first();
+       //relationship check Pained controller 
+       if ($api_id == $loca_id)
+       {
+      echo "<pre> Api Id : ". $api. "<br> Localization Id : ". $loca. "<br></pre>";
+        continue;
+       }else{die;}
        }
-  
-  
    
-if($user->wasRecentlyCreated and 
+if($apis->wasRecentlyCreated and 
 $location->wasRecentlyCreated)
    {
-     echo "Sucesso";
-   }else {echo "erro";}
-      
-    
-          
-     }
+     echo "<hr><p>success";
+   }else {echo "error";}
+   
+   }
 }

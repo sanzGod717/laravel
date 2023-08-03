@@ -13,4 +13,5 @@ class Pessoas extends Model
     public $timestamps = false;
     protected $fillable =
     ["NOME","EMAIL","SENHA"];
+    
 }

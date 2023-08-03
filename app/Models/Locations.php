@@ -11,10 +11,6 @@ class Locations extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ["api_id", "city", "state", "country", "postcode", "street", "road"];
+    protected $fillable = ["city", "state", "country", "postcode", "street", "road"];
 
-    public function api()
-    {
-        return $this->belongsTo(Apis::class);
-    }
 }

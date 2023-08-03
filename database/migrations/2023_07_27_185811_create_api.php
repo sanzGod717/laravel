@@ -18,9 +18,6 @@ return new class extends Migration
             $table->integer('age');
             $table->text('email');
             $table->text('password');
-            $table->SoftDeletes();
-            $table->timestamps();
-            
         });
     }
 

@@ -15,8 +15,6 @@ return new class extends Migration
   Schema::create('locations', function (Blueprint $table)
       {
     $table->id();
-    $table->unsignedBigInteger('api_id')
-    ->nullable();
     $table->string('city');
     $table->string('state');
     $table->string('country');
