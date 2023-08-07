@@ -18,7 +18,6 @@
  >
  @endfor
   
-<x-footer></x-footer>
 </html>
 </body>
 

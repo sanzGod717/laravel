@@ -2,6 +2,7 @@
 use App\Http\Controllers\Waifu;
 use App\Http\Controllers\Crud;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\BulletController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Waifu::class,'index']);
@@ -19,3 +20,5 @@ Route::post('/update', [Crud::class,'update'])->name('update');
 Route::get('/delete', [Crud::class,'destroy']);
 
 Route::get('/api', [ApiController::class,'index']);
+
+Route::get('/bullet', [BulletController::class,'index']);

@@ -65,20 +65,27 @@ class ApiController extends Controller
             "id_api"=>$api_id,
             "id_loca"=>$loca_id
             ]);
-          $loca = $inv->Location->where("id", $loca_id)->first();
-          
-          $api = $inv->Api->where("id", $api_id)->first();
+            /*
+          $loca = $inv->Location->where("id",$loca_id)->first();
+          */
+          $api['Api'] = $inv->Api;
+          $loca['Location'] = $inv->Location;
        //relationship check Pained controller 
        if ($api_id == $loca_id)
        {
-      echo "<pre> Api Id : ". $api. "<br> Localization Id : ". $loca. "<br></pre>";
+        echo "<pre> Api Id : ";
+        dump($api); 
+        echo "<br> state: ";
+        dump($loca);
+        echo "<br></pre>";
+        dump($inv);
         continue;
        }else{die;}
        }
    
 if($apis->wasRecentlyCreated and 
 $location->wasRecentlyCreated)
-   {
+  {
      echo "<hr><p>success";
    }else {echo "error";}
    

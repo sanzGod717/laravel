@@ -12,10 +12,10 @@ class invok extends Model
     ["id_api","id_loca"];
     public function Api()
 {
-    return $this->belongsTo(Apis::class, 'id_api');
+    return $this->HasOne(Apis::class,'id' ,'id_api');
 }
 public function Location()
 {
-    return $this->belongsTo(Locations::class, 'id_loca');
+    return $this->HasOne(Locations::class, 'id','id_loca');
 }
 }
