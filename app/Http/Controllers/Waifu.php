@@ -6,13 +6,12 @@ use App\Models\Pessoas;
 
 class Waifu extends Controller
 {
-    public function index (){
-        
-      return view('index');
-      
-      
-    }
-    public function waifu (){
+    public function index ()
+      {
+       return view('index');
+      }
+    public function waifu ()
+    {
      
      $curl = curl_init();
      
@@ -34,10 +33,10 @@ $height = $inv['height'];
 $color = $inv['dominant_color'];
 
    $data = [
-     "url" => $url,
-    "width" => $width,
-   "height" => $height,
-   "cor" => $color
+   "url"    =>   $url,
+   "width"  =>   $width,
+   "height" =>   $height,
+   "cor"    =>   $color
    ];
      return view('waifu',$data);
     }

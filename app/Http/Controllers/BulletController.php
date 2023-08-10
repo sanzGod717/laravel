@@ -15,7 +15,7 @@ class BulletController extends Controller
     $dia = $r->input('dia');
     $opDia = $r->input('outro');
     $task = $r->input('task');
-      
+      if (isset($tipo)){
       $bujo=bullet::create([
         "Mes"=> $mes,
         "Tipo"=>$tipo,
@@ -23,8 +23,9 @@ class BulletController extends Controller
         "Opdia"=> $opDia,
         "Task"=>$task
         ]);
-      
-        return view('bullet');
+        return view("index");
+      }else {
+        return view('bullet');}
     }
 }
 

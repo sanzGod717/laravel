@@ -16,6 +16,8 @@
      <li>
     <a href="http://127.0.0.1:8000/api"> Api </a></li>
       
+     <li>
+    <a href="http://127.0.0.1:8000/bullet"> Bujo </a></li>
       
     </ul>
 

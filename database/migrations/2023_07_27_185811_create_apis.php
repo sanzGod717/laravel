@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api');
+        Schema::dropIfExists('apis');
     }
 };

@@ -83,8 +83,6 @@ class Crud extends Controller
    
    if(isset($senhaBh->SENHA)) {
      $senhaBa = $senhaBh->SENHA;
-     
-      var_dump($senhaBa);
    }
    else {echo "Seu Email não Existe";}
       
