@@ -18,8 +18,8 @@ return new class extends Migration
     $table->string('city');
     $table->string('state');
     $table->string('country');
-    $table->string('postcode')->unique();
-    $table->text('road')->nullable();
+    $table->integer('postcode');
+    $table->string('road')->nullable();
         });
         
     }

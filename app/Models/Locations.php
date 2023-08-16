@@ -11,6 +11,6 @@ class Locations extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ["city", "state", "country", "postcode", "street", "road"];
+    protected $fillable = ["city", "state", "country", "postcode", "road"];
 
 }
