@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\Api;
 return new class extends Migration
 {
     /**
@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apis', function (Blueprint $table) {
+Schema::create('Logins', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('gender');
-            $table->integer('age');
-            $table->text('email');
-            $table->text('password');
+            
+            $table->foreignIdFor(api::class);
+            
+            $table->string('EMAIL')->unique();
+            $table->string('SENHA');
+            $table->SoftDeletes();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apis');
+        Schema::dropIfExists('Logins');
     }
 };

@@ -4,10 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Locations;
+use App\Models\Location;
 use Faker\Factory as Faker;
 
-class LocationsFactory extends Factory
+class LocationFactory extends Factory
 {
     public function definition(): array
     {

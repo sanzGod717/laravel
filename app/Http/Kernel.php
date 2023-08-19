@@ -44,7 +44,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
-
+   protected $routeMiddleware = [
+    // ...
+    'hash.password' => \App\Http\Middleware\HashPassword::class,
+];
     /**
      * The application's middleware aliases.
      *

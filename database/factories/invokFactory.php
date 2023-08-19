@@ -3,8 +3,8 @@
 namespace Database\Factories;
 use App\Models\invok;
 
-use App\Models\Apis;
-use App\Models\Locations;
+use App\Models\Api;
+use App\Models\Location;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,9 +13,13 @@ class invokFactory extends Factory
    
     public function definition(): array
     {
+        $api = Api::all()->random();
+        $Location = Location::all()->random();
+        
         return [
-            "id_api" => Apis::all()->random(),
-            "id_loca" => Locations::all()->random()
+            "api_id" => $api,
+            "location_id" => $Location
         ];
+        
     }
 }

@@ -9,13 +9,13 @@ class invok extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = 
-    ["id_api","id_loca"];
+    ["api_id","location_id"];
     public function Api()
 {
-    return $this->HasOne(Apis::class,'id' ,'id_api');
+    return $this->hasOne(Api::class,'id' ,'id_api');
 }
 public function Location()
 {
-    return $this->HasOne(Locations::class, 'id','id_loca');
+    return $this->hasOne(Location::class, 'id','id_loca');
 }
 }

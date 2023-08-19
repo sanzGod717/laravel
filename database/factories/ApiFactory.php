@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Faker\Generator as Faker;
-use App\Models\Apis;
+use App\Models\Api;
+use App\Models\Login;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
-class ApisFactory extends Factory
+class ApiFactory extends Factory
 {
     public function definition(): array
     {
@@ -17,10 +18,8 @@ class ApisFactory extends Factory
             "gender" => $this->faker->randomElement(['Female', 'Male']),
             
             "age" => $this->faker->numberBetween(7,89),
-            
-            "email" => $this->faker->email(),
-            
-            "password" => Hash::make("1235")
+          "login_id" => Login::all()->random()
+         
             
         ];
     }

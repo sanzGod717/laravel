@@ -83,7 +83,7 @@ li {
 </head>
 <body style=" background-color: black; color: white; ">
 
-  <x-nav></x-nav>
+  
  
   
   <main style=" margin-top: 20px;

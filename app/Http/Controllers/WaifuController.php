@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Pessoas;
+use App\Models\Pessoa;
+use Illuminate\Support\Facades\Http;
 
-class Waifu extends Controller
+class WaifuController extends Controller
 {
     public function index ()
       {
@@ -13,18 +14,15 @@ class Waifu extends Controller
     public function waifu ()
     {
      
-     $curl = curl_init();
-     
-     curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api.waifu.im/search?included_tags=maid&height=>=2000",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 30,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1]);
+     $response = Http::get('https://api.waifu.im/search', 
+         [
+    'included_tags' => 'maid',
+    'height' => '>=2000'
+          ]);
 
- $response = json_decode(curl_exec($curl),true);
-
-$inv = $response["images"][0];
+  $data = $response->json();
+  
+$inv = $data["images"][0];
 
 
 $url = $inv['url'];

@@ -2,24 +2,38 @@
 
 @section('conteudo')
 <h1>Lista de Login</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Senha</th>
-            </tr>
+ <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+       <tr>
+            <th style="background-color: #f2f2f2; padding: 8px; text-align: left; border-bottom: 1px solid #ddd; color: black;">ID</th>
+            <th style="background-color: #f2f2f2; padding: 8px; text-align: left; border-bottom: 1px solid #ddd; color: black;">Email</th>
+            <th style="background-color: #f2f2f2; padding: 8px; text-align: left; border-bottom: 1px solid #ddd; color: black;">Senha</th>
+        </tr>
         </thead>
         <tbody>
             @foreach ($logins as $login)
             <tr>
-                <td>{{ $login->id }}</td>
-                <td>{{ $login->NOME }}</td>
-                <td>{{ $login->EMAIL }}</td>
-                <td>{{ $login->SENHA }}</td>
-            </tr>
+              <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->id }}</td>
+            <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->EMAIL }}</td>
+            <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->SENHA }}</td>
+          </tr>
             @endforeach
         </tbody>
     </table>
+    <!--   
+   
+    </thead>
+    <tbody>
+        @foreach ($logins as $login)
+        <tr>
+            <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->id }}</td>
+            <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->email }}</td>
+            <td style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">{{ $login->senha }}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+    -->
+    
+   
 @endsection

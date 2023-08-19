@@ -3,9 +3,10 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use App\Models\apis;
+
+use App\Models\api;
 use App\Models\invok;
-use App\Models\Locations;
+use App\Models\Location;
 
 
 class ApiController extends Controller
@@ -41,7 +42,7 @@ class ApiController extends Controller
  $road = $local->name." , ".$local->number;
     }
     
-         $apis = apis::Create([
+         $apis = api::Create([
          "name" => $nam,
          "gender" => $gender,
          "age" => $age,
@@ -51,7 +52,7 @@ class ApiController extends Controller
         ]);
         
           //part of location 
-        $location =  Locations::Create([
+        $location =  Location::Create([
          "city" => $city,
          "state" => $state,
          "country" => $country,

@@ -5,8 +5,7 @@
         <h1>Formulário do Crud</h1>
         <form action="{{ route('create') }}" method="POST">
             @csrf
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+          
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required>

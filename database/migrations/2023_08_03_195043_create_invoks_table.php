@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Api;
+use App\Models\Location;
 
 return new class extends Migration
 {
@@ -12,12 +14,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoks', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_api');
-            $table->unsignedBigInteger('id_loca');
-           
-            $table->foreign('id_api')  ->references('id')->on('apis');
+         
+            $table->foreignIdFor(Api::class);
           
-            $table->foreign('id_loca')  ->references('id')->on('locations');
+            $table->foreignIdFor(Location::class);
+            
             $table->softDeletes();
         });
     }
