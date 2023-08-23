@@ -2,6 +2,7 @@
 use App\Http\Controllers\WaifuController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\bulletMController;
 use App\Http\Controllers\BulletController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,10 @@ Route::get('/delete', [CrudController::class,'destroy']);
 
 Route::get('/api', [ApiController::class,'index']);
 
-Route::get('/bullet', [BulletController::class,'index']);
+Route::get('/bulletF', [BulletController::class,'index']);
+
+Route::get('/bulletM/{mes}', [BulletMController::class,'index']);
+
+Route::get('/bulletM/filtro', [BulletMController::class,'filtro']);
+
+Route::get('/bulletM/add', [BulletMController::class,'add']);

@@ -17,8 +17,9 @@
     <a href="http://127.0.0.1:8000/api"> Api </a></li>
       
      <li>
-    <a href="http://127.0.0.1:8000/bullet"> Bujo </a></li>
-      
+    <a href="http://127.0.0.1:8000/bulletF"> Bujo Futuro </a></li>
+           <li>
+    <a href="http://127.0.0.1:8000/bulletM/{{$dias}}"> Bujo Mensal </a></li>
     </ul>
 
 @endsection

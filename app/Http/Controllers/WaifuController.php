@@ -9,7 +9,14 @@ class WaifuController extends Controller
 {
     public function index ()
       {
-       return view('index');
+        $mesAtual = date('m');
+        $anoAtual = date('Y');
+        $diasNoMes =
+        cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
+        $dnm = [
+          'dias' => $diasNoMes
+          ];
+       return view('index',$dnm);
       }
     public function waifu ()
     {
