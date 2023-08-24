@@ -24,8 +24,8 @@ Route::get('/api', [ApiController::class,'index']);
 
 Route::get('/bulletF', [BulletController::class,'index']);
 
-Route::get('/bulletM/{mes}', [BulletMController::class,'index']);
+Route::get('/bulletM/{mes}', [BulletMController::class,'index'])->name('/bulletM/{mes}');
 
-Route::get('/bulletM/filtro', [BulletMController::class,'filtro']);
+Route::post('/bulletM/filtro', [BulletMController::class,'filtro'])->name('/bulletM/filtro');
 
-Route::get('/bulletM/add', [BulletMController::class,'add']);
+Route::post('/bulletM/add', [BulletMController::class,'add'])->name('/bulletM/add');
