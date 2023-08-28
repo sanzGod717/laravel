@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bullet;
+use App\Models\bulletf;
 use Illuminate\Http\Request;
 
-class BulletController extends Controller
+class BulletFController extends Controller
 {
 
     public function index(request $r)
@@ -16,16 +16,19 @@ class BulletController extends Controller
     $opDia = $r->input('outro');
     $task = $r->input('task');
       if (isset($tipo)){
-      $bujo=bullet::create([
+      $bujo=Bulletf::create([
         "Mes"=> $mes,
         "Tipo"=>$tipo,
         "Dia"=>$dia,
         "Opdia"=> $opDia,
         "Task"=>$task
         ]);
+        $cleanUrl = $r->fullUrl();
         return view("index");
       }else {
-        return view('bullet');}
+        
+        return view('bulletFuturo');
+      }
     }
 }
 

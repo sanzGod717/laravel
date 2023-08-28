@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Bulletm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -33,27 +33,30 @@ return view("bulletMensal", $data1);
         $anoAtual = date('Y');
         $mes =
         cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
-       
+        $input = [];
+        
   foreach ($r->all() as $key => $value) {
-  if (strpos($key, 'id') === 0 && $value !== NULL) {
+  if (strpos($key, 'Day') === 0 && $value !== NULL) {
     
-   $inputs = [$key => $value];
-   $input []= $inputs;
+   $input = [$key => $value];
+   
+  
+   BulletM::create([
+     "Day" => $key,
+     "Task" => $value
+     ]);
+   
+   
    }
 }
-
-dump($input); 
-
-
-
    
-   
-   
-//return redirect('/bulletM/add?' . $queryString);
+return redirect("/bulletM/00");
+
+
+
  }
-   public function add (request $r){
+ 
+ 
    
-     echo "ola";
-   }
 }
  

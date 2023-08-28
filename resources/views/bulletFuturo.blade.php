@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<form method="GET" action="/bullet">
+<form method="GET" action="/bulletF">
     @csrf
     <label for="nome">Mês:</label>
     <input type="text" id="mes" name="mes" maxlength="3" pattern="[A-Za-z]+" required>

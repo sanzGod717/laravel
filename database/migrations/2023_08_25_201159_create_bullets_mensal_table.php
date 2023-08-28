@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bulletfs', function (Blueprint $table) {
+       Schema::create('bulletms', function (Blueprint $table) {
             $table->id();
-            $table->string('Mes');
-            $table->string('Tipo');
-            $table->integer('Dia');
-            $table->integer('Opdia')->nullable();
-            $table->text('Task');
+            $table->string('Day');
+            $table->string('Task');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bulletfs');
+        Schema::dropIfExists('bulletms');
     }
 };

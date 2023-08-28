@@ -1,7 +1,12 @@
 @extends('Layout.app')
 
 @section('conteudo')
-
+@php
+$mesAtual = date('m');
+        $anoAtual = date('Y');
+        $dias =
+        cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
+@endphp
     <ul>
       
       <li> 
