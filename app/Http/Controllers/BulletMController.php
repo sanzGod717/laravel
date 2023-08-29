@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Bulletm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BulletMController extends Controller
 {
@@ -50,13 +51,13 @@ return view("bulletMensal", $data1);
    }
 }
    
-return redirect("/bulletM/00");
-
-
-
+return redirect("/");
  }
- 
- 
-   
+
+ public function list (){
+  $results = Bulletm::all();
+  
+       return view("bulletMensalList",compact('results'));
+ }
 }
  

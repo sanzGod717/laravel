@@ -28,5 +28,5 @@ Route::get('/bulletM/{mes}', [BulletMController::class,'index'])->name('/bulletM
 
 Route::post('/bulletM/filtro', [BulletMController::class,'filtro'])->name('/bulletM/filtro');
 
-Route::post('/bulletM/add', [BulletMController::class,'add'])->name('/bulletM/add');
+Route::get('/bulletMList', [BulletMController::class,'list']);
 
