@@ -1,7 +1,11 @@
 @extends('Layout.app')
 
 @section('conteudo')
-
+<h1 style="background-color: #8A2BE2;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 36px;" > Registro Futuro</h1>
 <form method="GET" action="/bulletF">
     @csrf
     <label for="nome">Mês:</label>
@@ -29,8 +33,17 @@
     <center>
    <input type="text" name="task" placeholder="Digite sua Task aqui">
 
-    <button type="submit">Salvar</button>
     </center>
+   <p> <button type="submit">Salvar</button>
+    <button style="
+  background-color: #8A2BE2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  float: right;
+  cursor: pointer;" type="button" onclick="location.href='/bulletF/list'">Veja a Lista!</button>
 </form>
 
 

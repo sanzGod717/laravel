@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
+use App\Models\Login;
 use App\Models\api;
 use App\Models\invok;
 use App\Models\Location;
@@ -26,7 +27,7 @@ class ApiController extends Controller
     
     $first = $name->first;
     $last = $name->last;
-    $nam = $first." ".$last;
+    $name = $first." ".$last;
     $gender = $resulta->gender;
     $email = $resulta->email;
     $password = $resulta->login->password;
@@ -42,15 +43,13 @@ class ApiController extends Controller
  $road = $local->name." , ".$local->number;
     }
     
-         $apis = api::Create([
-         "name" => $nam,
-         "gender" => $gender,
-         "age" => $age,
-         "email" => $email,
-         "password" => $password,
-         "local" => "teste"
-        ]);
-        
+       $login = Login::inRandomOrder()->first();
+$apis = api::Create([
+    "name" => $name,
+    "gender" => $gender,
+    "age" => $age,
+    "login_id" => $login->id
+]);
           //part of location 
         $location =  Location::Create([
          "city" => $city,
@@ -59,27 +58,18 @@ class ApiController extends Controller
          "postcode" => $postCode,
          "road" => $road
           ]);
-          $loca_id = $location->id;
-          $api_id = $apis->id;
           
-          $inv = invok::create([
-            "id_api"=>$api_id,
-            "id_loca"=>$loca_id
-            ]);
             /*
           $loca = $inv->Location->where("id",$loca_id)->first();
           */
-          $api['Api'] = $inv->Api;
-          $loca['Location'] = $inv->Location;
+          
        //relationship check Pained controller 
-       if ($api_id == $loca_id)
+       if ($apis !=null and  $location != null)
        {
-        echo "<pre> Api Id : ";
-        dump($api); 
-        echo "<br> state: ";
-        dump($loca);
-        echo "<br></pre>";
-        dump($inv);
+        echo "<pre> Api : ";
+        dump($apis); 
+        echo "<br> Local: ";
+        dump($location);
         continue;
        }else{die;}
        }

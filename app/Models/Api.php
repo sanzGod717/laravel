@@ -12,11 +12,11 @@ class Api extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ["name", "gender", "age", "email_id"];
+    protected $fillable = ["name", "gender", "age", "login_id"];
     
     public function email ()
     {
-      return $this->belongsTo();
+      return $this->belongsTo('Api');
     }
 
 }

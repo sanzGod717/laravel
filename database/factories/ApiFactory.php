@@ -18,7 +18,8 @@ class ApiFactory extends Factory
             "gender" => $this->faker->randomElement(['Female', 'Male']),
             
             "age" => $this->faker->numberBetween(7,89),
-          "login_id" => Login::all()->random()
+          
+            "login_id" => Login::all()->random()
          
             
         ];

@@ -21,8 +21,8 @@ class CrudController extends Controller
      public function all(){
        
            $logins = Login::all();
-
-    return view('list', ['logins' => $logins]);
+           $api = Api::all();
+    return view('list', ['logins' => $logins],['api' => $api]);
 
     }
      public function create(Request $request)

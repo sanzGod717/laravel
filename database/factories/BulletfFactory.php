@@ -3,10 +3,10 @@
 namespace Database\Factories;
 
 use Faker\Generator as Faker;
-use App\Models\Bullet;
+use App\Models\Bulletf;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BulletFactory extends Factory
+class BulletfFactory extends Factory
 {
     public function definition()
     {

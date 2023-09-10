@@ -26,9 +26,12 @@ class BulletFController extends Controller
         $cleanUrl = $r->fullUrl();
         return view("index");
       }else {
-        
-        return view('bulletFuturo');
+       return view('bulletFuturo');
       }
+    }
+    public function listFuturo(){
+      $bf = Bulletf::all();
+      return view('bulletFuturoList',['bf'=>$bf]);
     }
 }
 

@@ -17,7 +17,7 @@
  height="{{$height}}"
  >
  @endfor
-  
-</html>
+    
 </body>
+</html>
 
