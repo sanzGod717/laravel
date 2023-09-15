@@ -8,17 +8,19 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
 class RgMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+     private $name;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($n)
     {
-        //
+        $this->name = $n;
+        //dd($this->name);
     }
 
     /**
@@ -35,12 +37,14 @@ class RgMail extends Mailable
      * Get the message content definition.
      */
     public function content(): Content
-    {
-        return new Content(
-            view: 'Mail.RgMail',
-        );
-    }
-
+{
+    return new Content(
+        view: 'Mail.RgMail',
+        with: [
+                'name' => $this->name
+            ]
+);
+}
     /**
      * Get the attachments for the message.
      *
@@ -48,6 +52,8 @@ class RgMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+          Attachment::fromPath(
+          "/data/data/com.termux/files/home/storage/downloads/php/galo.jpg")];
     }
 }

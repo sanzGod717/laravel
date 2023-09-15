@@ -15,8 +15,7 @@ class Login extends Model
 
     public function api()
    {
-     return $this->hasOne(
-       Api::class);
+     return $this->hasOne(Api::class);
    }
   
 }

@@ -16,7 +16,7 @@ class Api extends Model
     
     public function email ()
     {
-      return $this->belongsTo('Api');
+      return $this->hasMany(Login::class);
     }
 
 }

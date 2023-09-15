@@ -14,7 +14,7 @@ class ApiController extends Controller
 {
     public function index()
     {
-      for($i=1;$i<=10;$i++){
+      for($i=1;$i<=5;$i++){
        
      $endpoint = 'https://randomuser.me/api';
      $client = new Client();
@@ -67,9 +67,9 @@ $apis = api::Create([
        if ($apis !=null and  $location != null)
        {
         echo "<pre> Api : ";
-        dump($apis); 
+        dump($apis->name,$apis->gender,$apis->age,$apis->login_id); 
         echo "<br> Local: ";
-        dump($location);
+        dump($location->city,$location->state, $location-> country, $location->postcode, $location->road);
         continue;
        }else{die;}
        }
