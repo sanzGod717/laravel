@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Bullet Futuro
+@endsection
 @section('conteudo')
 <h1 style="background-color: #8A2BE2;
   color: #fff;

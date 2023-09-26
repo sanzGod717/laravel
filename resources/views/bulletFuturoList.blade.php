@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Lista Bullet Futuro
+@endsection
 @section('conteudo')
 <h1>Lista do Registro Futuro</h1>
  <table style="border-collapse: collapse; width: 100%;">

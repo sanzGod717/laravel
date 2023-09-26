@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Crud
+@endsection
 @section('conteudo')
 <div class="formulario">
         <h1>Formulário do Crud</h1>

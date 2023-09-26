@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Bullet Mensal
+@endsection
 @section('conteudo')
 @php
         

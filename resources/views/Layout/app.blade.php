@@ -9,7 +9,7 @@
   <style>
           <x-style></x-style>
   </style>
-  <title>Laravel</title>
+  <title>@yield('titulo')</title>
 </head>
 <body style=" background-color: black; color: white; ">
 <main style=" margin-top: 20px;

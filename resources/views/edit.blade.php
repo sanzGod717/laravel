@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Editor
+@endsection
 @section('conteudo')
 <form action="{{ route('update') }}" method="POST">
             @csrf

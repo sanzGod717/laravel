@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Deletar
+@endsection
 @section('conteudo')
 <form action="/delete" method="GET">
         <label for="nome">Email:</label>

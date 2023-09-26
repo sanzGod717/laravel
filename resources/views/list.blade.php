@@ -1,5 +1,7 @@
 @extends('Layout.app')
-
+@section('titulo')
+Lista de Usuarios
+@endsection
 @section('conteudo')
 <h1>Lista de Login</h1>
  <table style="border-collapse: collapse; width: 100%;">
