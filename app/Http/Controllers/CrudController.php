@@ -8,14 +8,9 @@ use App\Models\Api;
 
 class CrudController extends Controller
  {
-    public function __construct()
-    {
-    $this->middleware('hash.password')->only('store');
-    }
+   
     public function index()
     {
-      
-    
       return view('form');
     }
      public function all(){
@@ -33,10 +28,8 @@ class CrudController extends Controller
         $hash = password_hash($senha, PASSWORD_DEFAULT);
         
          $login = Login::all();
-         $id = Api::all()->random();
          dump($login);
         Login::Create([
-         "api_id" => $id->id,
          "EMAIL" => $email,
          "SENHA" => $hash
         ]);

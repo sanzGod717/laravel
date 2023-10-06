@@ -26,9 +26,7 @@ class DatabaseSeeder extends Seeder
           Location::factory()->count(10)->create();
           invok::factory()->count(10)->create();
           Login::factory()->count(10)->create();
-          Api::factory()->count(10)->create([
-            'login_id' => Login::inRandomOrder()->first()->id
-        ]);
+          Api::factory()->count(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

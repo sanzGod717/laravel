@@ -13,7 +13,6 @@ return new class extends Migration
     {
 Schema::create('Logins', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(api::class);
             $table->string('EMAIL')->unique();
             $table->string('SENHA');
             $table->SoftDeletes();

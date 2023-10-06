@@ -19,7 +19,6 @@ class ApiFactory extends Factory
             
             "age" => $this->faker->numberBetween(7,89),
           
-            "login_id" => Login::all()->random()
          
             
         ];

@@ -12,12 +12,9 @@ class Api extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ["name", "gender", "age", "login_id"];
+    protected $fillable = ["name", "gender", "age"];
     
-    public function email ()
-    {
-      return $this->hasMany(Login::class);
-    }
+    
 
 }
 

@@ -10,8 +10,6 @@ class ApisTableSeeder extends Seeder
 {
     public function run()
     {
-        Api::factory()->count(10)->create([
-            'login_id' => Login::inRandomOrder()->first()->id
-        ]);
+        Api::factory()->count(10)->create();
     }
 }

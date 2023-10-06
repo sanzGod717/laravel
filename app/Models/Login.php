@@ -11,11 +11,8 @@ class Login extends Model
     use HasFactory;
     use SoftDeletes;
     public $timestamps = false;
-    protected $fillable =["api_id","EMAIL","SENHA"];
+    protected $fillable =["EMAIL","SENHA"];
 
-    public function api()
-   {
-     return $this->hasOne(Api::class);
-   }
+    
   
 }
