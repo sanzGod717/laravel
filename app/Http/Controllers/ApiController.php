@@ -42,13 +42,11 @@ class ApiController extends Controller
  
  $road = $local->name." , ".$local->number;
     }
-    
-       $login = Login::inRandomOrder()->first();
 $apis = api::Create([
     "name" => $name,
     "gender" => $gender,
     "age" => $age,
-    "login_id" => $login->id
+    
 ]);
           //part of location 
         $location =  Location::Create([
